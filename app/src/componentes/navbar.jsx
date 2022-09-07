@@ -4,14 +4,12 @@ import './navbar.css'
 const NavBar = () => {
     return(
         <div className="navbar">
-            <img className="home mg ig" src="#"/> 
-            <img className="search mg ig" src="#"/> 
-            <img className="movie mg ig" src="#"/> 
-            <img className="series mg ig" src="#"/>
-            <img className="top mg ig" src="#"/> 
-            <img className="games mg ig" src="#"/>
-            <img className="plus mg ig" src="#"/> 
-            <img className="random mg ig" src="#"/>
+            <img src="../assets/search.png" className="home mg ig"/> 
+            <img src="../assets/home.png" className="home mg ig"/> 
+            <img src="../assets/movie.png" className="movie mg ig"/> 
+            <img src="../assets/series.png" className="series mg ig"/>
+            <img src="../assets/plus.png" className="plus mg ig"/> 
+            <img src="../assets/random.png" className="random mg ig"/>
         </div>
     )
 }
