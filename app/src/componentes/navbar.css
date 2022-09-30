@@ -1,7 +1,7 @@
 .navbar{
     display: flex;
     flex-direction: column;
-    width: 5%;
+    width: 7%;
     height: 99.7%;
     justify-content: center;
     align-items: center;
@@ -11,8 +11,17 @@
     margin: 8px;
 }
 .ig{
-    width: 50px;
-    border: 1px solid #0f0;
-    height: 50px;
+    width: 50%;
+    height: 50%;
+}
+.items{
+    width: 80%;
+    margin: 25px;
+    text-align: center;
     cursor: pointer;
+}
+.items:hover{
+    background: #1e1e1e;
+    width: 85%;
+    border-right: 2px solid #f00;
 }
