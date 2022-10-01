@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import NavBar from './componentes/navbar';
+import Home from './home.jsx'
 import {Link, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
+      <Home className="Home"/>
     </div>
   )
 }
