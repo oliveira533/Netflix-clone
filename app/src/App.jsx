@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import NavBar from './componentes/navbar';
 import Home from './home.jsx'
+import Search from './search.jsx'
 import {Link, Routes, Route} from 'react-router-dom';
 
 function App() {
