@@ -30,6 +30,19 @@ app.get("/movies", function(req, res){
     con.end();
 })
 
+app.get("/horrormovies", function(req, res){
+    con.connect();
+
+    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 1';
+
+    con.query(slq, function(error, results, fields){
+        if(results.length != 0)
+            res.send(results)
+        else
+            res.send('no movies found in our databases')
+    });
+});
+
 app.get("/series", function(req, res){
     con.connect();
 
