@@ -199,6 +199,32 @@ app.get("/adventureseries", function(req, res){
     con.end();
 });
 
+app.get("/docseries", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 6', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
+
+app.get("/romanceseries", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 7', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
+
 app.listen(8081, function(){
     console.log('server on');
 });
