@@ -132,7 +132,72 @@ app.get("/series", function(req, res){
     })
 
     con.end();
-})
+});
+
+app.get("/horrorseries", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 1', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
+
+app.get("/thrillerseries", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 2', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
+
+app.get("/actionseries", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 3', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else    
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
+
+app.get("/comedysersies", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 4', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
+
+app.get("/adventureseries", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 5', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else   
+            res.send('no movies found in our databases')
+    })
+
+    con.end();
+});
 
 app.listen(8081, function(){
     console.log('server on');
