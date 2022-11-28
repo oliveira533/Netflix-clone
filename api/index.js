@@ -33,7 +33,7 @@ app.get("/movies", function(req, res){
 app.get("/horrormovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 1';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 1';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -46,7 +46,7 @@ app.get("/horrormovies", function(req, res){
 app.get("/thrillermovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 2';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 2';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -59,7 +59,7 @@ app.get("/thrillermovies", function(req, res){
 app.get("/actionmovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 3';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 3';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -72,7 +72,7 @@ app.get("/actionmovies", function(req, res){
 app.get("/coomedymovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 4';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 4';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -85,7 +85,7 @@ app.get("/coomedymovies", function(req, res){
 app.get("/adventuremovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 5';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 5';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -98,7 +98,7 @@ app.get("/adventuremovies", function(req, res){
 app.get("/docmovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 6';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 6';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -111,7 +111,7 @@ app.get("/docmovies", function(req, res){
 app.get("/romancemovies", function(req, res){
     con.connect();
 
-    var slq = 'SELECT NAME, NAMEGEN GENRE, SYNOPSIS, DATE, IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 7';
+    var slq = 'SELECT NAMEMOV NAME, NAMEGEN GENRE, SYNOPSISMOV SYNOPSIS, DATEMOV DATE, IMGMOV IMG FROM tbmovie LEFT JOIN tbgenre ON tbmovie.GENRE = tbgenre.IDGEN WHERE IDGEN = 7';
 
     con.query(slq, function(error, results, fields){
         if(results.length != 0)
@@ -137,7 +137,7 @@ app.get("/series", function(req, res){
 app.get("/horrorseries", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 1', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 1', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else
@@ -150,7 +150,7 @@ app.get("/horrorseries", function(req, res){
 app.get("/thrillerseries", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 2', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 2', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else
