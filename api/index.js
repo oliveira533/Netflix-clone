@@ -163,7 +163,7 @@ app.get("/thrillerseries", function(req, res){
 app.get("/actionseries", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 3', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 3', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else    
@@ -176,7 +176,7 @@ app.get("/actionseries", function(req, res){
 app.get("/comedysersies", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 4', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 4', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else
@@ -189,7 +189,7 @@ app.get("/comedysersies", function(req, res){
 app.get("/adventureseries", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 5', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 5', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else   
@@ -202,7 +202,7 @@ app.get("/adventureseries", function(req, res){
 app.get("/docseries", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 6', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 6', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else
@@ -215,7 +215,7 @@ app.get("/docseries", function(req, res){
 app.get("/romanceseries", function(req, res){
     con.connect();
 
-    con.query('SELECT NAME, NAMEGEN GENRE, SYNOPSIS, IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 7', function(error, results, fields){
+    con.query('SELECT NAMESER NAME, NAMEGEN GENRE, SYNOPSISSER SYNOPSIS, IMGSER IMG FROM tbseries LEFT JOIN tbgenre ON tbseries.GENRE = tbgenre.IDGEN WHERE IDGEN = 7', function(error, results, fields){
         if (results.length != 0)
             res.send(results);
         else
@@ -224,6 +224,17 @@ app.get("/romanceseries", function(req, res){
 
     con.end();
 });
+
+app.get("/seriesepgeneral", function(req, res){
+    con.connect();
+
+    con.query('SELECT NAMEEP EPISODEO, NUMEP NUMERO, NUMSES TEMPORADA, NAMESER SERIE FROM tbepisode LEFT JOIN tbseason ON SEASONEP = IDSES RIGHT JOIN tbseries ON SERIESES = IDSER', function(error, results, fields){
+        if (results.length != 0)
+            res.send(results);
+        else
+            res.send('no ep found in our databases')
+    });
+})
 
 app.listen(8081, function(){
     console.log('server on');
