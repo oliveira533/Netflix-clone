@@ -2,6 +2,16 @@ import React from "react";
 import './index.css';
 import ItemHome from "./componentes/homeItem";
 
+var myHeaders = new Headers();
+var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+
+fetch('http://localhost:8081/movies', myInit)
+.then(response => response.json())
+.then(data => console.log(data));
+
 const Home = () =>{
     return(
         <div className="homeContainer align">

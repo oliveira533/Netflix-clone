@@ -1,6 +1,9 @@
 const express = require("express");
 const send = require("send");
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
 
 var mysql = require("mysql");
 
@@ -41,6 +44,7 @@ app.get("/horrormovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/thrillermovies", function(req, res){
@@ -54,6 +58,7 @@ app.get("/thrillermovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/actionmovies", function(req, res){
@@ -67,6 +72,7 @@ app.get("/actionmovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/coomedymovies", function(req, res){
@@ -80,6 +86,7 @@ app.get("/coomedymovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/adventuremovies", function(req, res){
@@ -93,6 +100,7 @@ app.get("/adventuremovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/docmovies", function(req, res){
@@ -106,6 +114,7 @@ app.get("/docmovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/romancemovies", function(req, res){
@@ -119,6 +128,7 @@ app.get("/romancemovies", function(req, res){
         else
             res.send('no movies found in our databases')
     });
+    con.end();
 });
 
 app.get("/series", function(req, res){
@@ -234,6 +244,7 @@ app.get("/seriesepgeneral", function(req, res){
         else
             res.send('no ep found in our databases')
     });
+    con.end();
 })
 
 app.listen(8081, function(){
