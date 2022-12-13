@@ -1,13 +1,16 @@
 import React from "react";
-import './homeItem.css'
+import './homeItem.css';
+import '../index.css'
 
-const ItemHome = () => {
+const ItemHome = (movie) => {
     return(
-        <div className="ItemContainer">
-            <img src="#" className="ItemImg"/>
-            <h4 id="name" className="ItemName">Nome</h4>
-            <p id="desc" className="ItemDesc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus cumque dignissimos, modi itaque recusandae eaque!</p>
-        </div>
+        <li className="homeItem">
+            <div className="ItemContainer">
+                <img src="#" className="ItemImg"/>
+                <h4 id="name" className="ItemName">{movie.title} Titulo</h4>
+                <p id="desc" className="ItemDesc">{movie.desc}desc</p>
+            </div>
+        </li>
     );
 };
 

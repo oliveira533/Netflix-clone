@@ -8,9 +8,22 @@ var myInit = { method: 'GET',
                mode: 'cors',
                cache: 'default' };
 
-fetch('http://localhost:8081/movies', myInit)
+var movie = fetch('http://localhost:8081/movies', myInit)
 .then(response => response.json())
-.then(data => console.log(data));
+.then(data => console.log(data))
+
+var teste = [
+    {
+        id: 1,
+        title: 'Acordar',
+        desc: 'descrição',
+    },
+    {
+        id: 2,
+        title: 'dormir',
+        desc: 'descrição',
+    },
+]
 
 const Home = () =>{
     return(
@@ -19,10 +32,9 @@ const Home = () =>{
                 <li>
                     <h3 className="homeTitle">Pra você</h3>
                     <ul className="homeList">
-                        <li className="homeItem"><ItemHome/></li>
-                        <li className="homeItem"><ItemHome/></li>
-                        <li className="homeItem"><ItemHome/></li>
-                        <li className="homeItem"><ItemHome/></li>
+                        {
+                        teste.map(movie => <ItemHome movie={movie} key={movie.id} />)
+                        }
                     </ul>
                 </li>
                 <li>
